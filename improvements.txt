@@ -1,0 +1,30 @@
+connect 4 class - include run function (self.players)
+
+define a RowError(Exception)
+
+handle index, value and row errors
+
+find diagonal algorithm
+comment checking
+
+---------------------
+
+tests:
+
+test all error handling
+
+CAN'T BREAk print
+
+don't allow inputs inside functions
+make them their own functions, then embed functions and during
+testing we can pass in manual variables.
+
+-------------------------
+
+names for collect_players_function vs collect_players_procedure 
+
+generate_board return -- is this kosher
+
+is it bad that I have so many empty returns
+
+how to put print_scoreboard back into board
