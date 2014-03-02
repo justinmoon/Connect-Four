@@ -31,30 +31,8 @@ initial_state = [[" " for x in xrange(7)] for x in xrange(6)]
 
 class Game:
 
-    # def __init__(self, first_game=True, current_player=None):
-    #     self.first_game = first_game
-    #     self.players = []
-    #     self.available_marks = ["X","O"]
-    #     self.state = initial_state
-    #     self.current_player = current_player
-    #     self.next_player = None
-        
-        # I choose the board to be a property of the game because 
-
-        # self.board = Board()
-
-        # self.board.game_board = self.generate_game_board(self.state)
-        # self.board.divider = self.generate_divider()
-        # self.board.column_numbers = self.generate_column_numbers
-
-    # def __init__(self, initial_data):
-    #     for key in initial_data:
-    #         setattr(self, key, initial_data[key])
-
-    def __init__(self, players, first_game=True):
-        
-
-        self.first_game = first_game
+    def __init__(self, players):
+        self.first_game = True
         self.players = players        
         self.state = initial_state
         self.set_player_positions()
@@ -65,49 +43,9 @@ class Game:
 
     def set_player_positions(self):
         """ Generate 0 or 1 with equal probability, then assign the player at that index to go """
-        # if len(self.players) == 1:
-
-
         random_num = int(floor(random() + 0.5))
         self.current_player = self.players[random_num]
         self.next_player = self.players((random_num + 1) % 2)
-
-
-
-    def collect_players_function(self):
-        """ This is a function to  """
-
-        new_player_name = raw_input("Player " + str(len(self.players) + 1) + ", please enter your name: ").capitalize()
-        print ""
-        if len(self.players) == 0:
-            # TRYYYYYYY!!!!!
-            new_player_mark = raw_input(new_player_name + ", would you like to be X's or O's? ").upper()
-            while new_player_mark not in self.available_marks:
-                print ""
-                new_player_mark = raw_input(new_player_name + ", enter X or O: ").upper()
-            self.available_marks.remove(new_player_mark)
-        else:
-            new_player_mark = self.available_marks[0]
-        
-        new_player = Player(new_player_name,new_player_mark)
-        return new_player
-
-    def collect_players_phase(self):
-        """  """
-        if self.first_game == True and self.current_player == None:
-            self.available_marks = ["X","O"]
-            self.players.append(self.collect_players_function())
-            print ""
-            self.players.append(self.collect_players_function())
-            print ""
-            self.set_current_player
-                # set this equal to "player"
-                # self.player.append(player)
-            print "{0} will control the {1}'s and {2} will control the {3}'s\n".format(
-                        self.players[0].name, self.players[0].mark, self.players[1].name, self.players[1].mark)
-        else:
-           self.board.print_scoreboard()
-           print ""
 
     def get_input(self, message):
         """ IS THIS NECESSARY. ALMOST SEEMS STUPID... """ 
@@ -257,22 +195,15 @@ class Game:
         else:
             print "goodbye"
 
-    def run(self, first_game=True, current_player=None):
+    def run(self):
 
-        print "\n   Welcome to 'Connect 4 by Moen'\n"
-
-        self.collect_players_phase()
-
-        # for player in self.players:
-        #     print player.name
-
-        self.set_current_player()
-
-
+        if self.first_game == True:
+            print "\n   Welcome to 'Connect 4 by Moen'\n"
+            print "{0} will control the {1}'s and {2} will control the {3}'s\n".format(
+                players[0].name, players[0].mark, players[1].name, players[1].mark)
 
         self.play_game()
-
-        # make this display_results at the end
+        # make this display results at the end
         self.board.print_board()
 
         self.wrapup()
@@ -328,6 +259,37 @@ class Board:
 
     
 
+
+
+def collect_players():
+    """ This is a function to """
+    marks = ["X","O"]
+    players = []
+
+    player_1_name = raw_input("Player " + str(len(players) + 1) + ", please enter your name: ").capitalize()
+    print ""
+    player_1_mark = raw_input(player_1_name + ", would you like to be X's or O's? ").upper()
+    while player_1_mark not in marks:
+        print ""
+        player_1_mark = raw_input(player_1_name + ", enter X or O: ").upper()
+    players.append(Player(player_1_name,player_1_mark))
+
+    player_2_name = raw_input("Player " + str(len(players) + 1) + ", please enter your name: ").capitalize()
+    player_2_mark = marks[(player_1_mark + 1) % 2]
+    players.append(Player(player_2_name, player_2_mark))
+
+    return players
+
+
 if __name__ == "__main__":
-    game = Game()
+    
+    players = collect_players()
+    game = Game(players)
+    # dict = {}
+    # players.append(collect_players_function(available_marks, players))
+    # print ""
+    # players.append(collect_players_function())
+    # print ""
+
+
     game.run()

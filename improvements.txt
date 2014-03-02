@@ -1,11 +1,5 @@
-connect 4 class - include run function (self.players)
-
-define a RowError(Exception)
-
-handle index, value and row errors
-
 find diagonal algorithm
-comment checking
+comment 'winner' methods
 
 ---------------------
 
@@ -21,10 +15,11 @@ testing we can pass in manual variables.
 
 -------------------------
 
-names for collect_players_function vs collect_players_procedure 
+add an option to abort at any time by entering draw, making both players agree
 
-generate_board return -- is this kosher
+have a match class, which could have a tournament subclass
+the match class could take in player names and store the games-won tally
 
-is it bad that I have so many empty returns
-
-how to put print_scoreboard back into board
+better way to do diagonal checker? can these be classes?
+i want to pass a + or - in as an agrument since the NE and NW diagonal functions
+only differ by a sign. is that possible without defining my own funciton
