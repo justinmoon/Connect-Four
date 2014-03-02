@@ -153,11 +153,11 @@ class Game:
     def game_over(self):
         """ This method will declare a winner. """
         top_row = self.state[0][:]
-        if " " not in top_row:
-            return "draw"
-        elif self.horizontal_winner() or self.vertical_winner() \
+        if self.horizontal_winner() or self.vertical_winner() \
                         or self.diagonal_winner():
             return "winner"
+        elif " " not in top_row:
+            return "draw"
         else: 
             return False
 
