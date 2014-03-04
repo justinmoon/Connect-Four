@@ -17,6 +17,12 @@ testing we can pass in manual variables.
 
 add an option to abort at any time by entering draw, making both players agree
 
+
+
+
+
+
+
 have a match class, which could have a tournament subclass
 the match class could take in player names and store the games-won tally
 

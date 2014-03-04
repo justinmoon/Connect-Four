@@ -3,7 +3,6 @@ from math import floor
 
 class Player:
     """ This class represents the players. """
-
     def __init__(self, name, mark):
         self.name = name
         self.mark = mark
@@ -89,7 +88,6 @@ class Game:
                 self.current_player = self.current_player.next
             else: 
                 print ""
-        
 
     def horizontal_winner(self):
         """ Checks for horizontal winning combinations. Iterates over all 
@@ -206,10 +204,8 @@ class Game:
         self.board.print_board(self.state)
         self.wrapup()
 
-
 class Board:
     """ This class handles the display & printing of the board. """
-    
     def __init__(self, state):
         self.game_board = self.generate_game_board(state)
         self.divider = self.generate_divider()
@@ -226,7 +222,6 @@ class Board:
                 this_row += "| " + entry + " |"
             body += this_row + "|\n"
         return body[:-1] 
-
 
     def generate_divider(self):
         """ this generates a line of dashes separating the 'gameplay board' 
@@ -262,8 +257,6 @@ class Board:
 def collect_players():
     """ This is the first function called by the main method. 
     It collects the players and returns a list of player objects. """
-
-
     marks = ["X","O"]
     players = []
 
@@ -293,7 +286,6 @@ def collect_players():
     players.append(player_2)
 
     return players
-
 
 if __name__ == "__main__":
     print "\nWelcome to 'Connect 4 by Moen'\n"
