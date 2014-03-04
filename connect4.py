@@ -300,6 +300,6 @@ if __name__ == "__main__":
     players = collect_players()
     game = Game(players)
     print "{0} will control the {1}'s and {2} will control the {3}'s\n".format(
-                game.players[0].name, game.players[0].mark, game.players[1].name, 
-                game.players[1].mark)
+                game.players[0].name, game.players[0].mark, 
+                game.players[1].name, game.players[1].mark)
     game.run()
